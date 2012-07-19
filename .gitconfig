@@ -1,0 +1,7 @@
+[user]
+	name = Jason Dagit
+	email = dagit@galois.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
