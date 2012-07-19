@@ -2,6 +2,7 @@
 	name = Jason Dagit
 	email = dagit@galois.com
 [color]
+  ui = auto
 	diff = auto
 	status = auto
 	branch = auto
