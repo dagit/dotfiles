@@ -1,7 +1,7 @@
 #!/bin/bash
 
-IGNORED=(. .. .git .gitignore)
-DOTFILES=(.*)
+IGNORED=(. .. .git .gitignore .ssh)
+DOTFILES=(.* .ssh/rc)
 
 function containsElement () {
 
