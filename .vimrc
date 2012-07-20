@@ -6,6 +6,17 @@ call vundle#rc()
 " let Vundle manage Vundle
 " required! 
 Bundle 'gmarik/vundle'
+Bundle 'zaiste/tmux.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'gregsexton/gitv'
+Bundle 'Twinside/vim-syntax-haskell-cabal'
+Bundle 'lukerandall/haskellmode-vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'hallison/vim-markdown'
+Bundle 'vim-scripts/DoxyGen-Syntax'
+Bundle 'vim-scripts/stlrefvim'
+
+:let g:haddock_browser="open"
 
 set t_Co=256
 syntax enable

@@ -40,3 +40,7 @@ if [[ ! -e "$VUNDLE_DIR" ]]
 then
   git clone "$VUNDLE_REPO" "$VUNDLE_DIR"
 fi
+
+# Update Vundle
+#vim +BundleInstall\! +qall
+vim +BundleInstall +qall
