@@ -32,3 +32,11 @@ do
     fi
   fi
 done
+
+# Also install Vundle if it's not already present:
+VUNDLE_DIR=~/.vim/bundle/vundle
+VUNDLE_REPO=https://github.com/gmarik/vundle.git
+if [[ ! -e "$VUNDLE_DIR" ]]
+then
+  git clone "$VUNDLE_REPO" "$VUNDLE_DIR"
+fi
