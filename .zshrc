@@ -38,6 +38,45 @@ SAVEHIST=200
 ## disable mail checking
 #MAILCHECK=0
 
+## Fancy git prompt magic
+setopt prompt_subst
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' actionformats \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
+zstyle ':vcs_info:*' formats       \
+    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
+zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+
+zstyle ':vcs_info:*' enable git cvs svn
+# or use pre_cmd, see man zshcontrib
+vcs_info_wrapper() {
+  vcs_info
+  if [ -n "$vcs_info_msg_0_" ]; then
+    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
+  fi
+}
+
+error_code() {
+  # make sure to get the err code first before any commands we execute here write over it
+  local ret=$?
+  local errcode=""
+
+  if [ "$ret" -gt 0 ]
+  then
+    #errcode="${RED}[${ret}]${DEFAULT}"
+    errcode="%{$fg[red]%}[${ret}]%{$reset_color%}"
+  else
+    #errcode="${LCYAN}[☺]${DEFAULT}"
+    errcode="%{$fg[cyan]%}[☺]%{$reset_color%}"
+  fi
+  echo $errcode
+}
+RPROMPT="%T"
+# Line continuation is intention, it captures the newline character
+PROMPT=$'$(error_code)'$'$(vcs_info_wrapper)'"%n@%m:%~
+$ "
+## end Fancy git prompt magic
+
 autoload -U colors
 colors
 
@@ -49,4 +88,3 @@ alias less='less -R'
 alias gdb='gdb -tui --args'
 export EDITOR=vim
 export WORKSPACE=$HOME/workspace
-
