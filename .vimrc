@@ -16,6 +16,7 @@ Bundle 'hallison/vim-markdown'
 Bundle 'vim-scripts/DoxyGen-Syntax'
 Bundle 'vim-scripts/stlrefvim'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'vim-scripts/The-NERD-tree'
 
 :let g:haddock_browser="open"
 
