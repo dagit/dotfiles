@@ -56,6 +56,9 @@ vcs_info_wrapper() {
   fi
 }
 
+# git specific completions are too slooooow
+compdef -d git
+
 error_code() {
   # make sure to get the err code first before any commands we execute here write over it
   local ret=$?
@@ -71,14 +74,21 @@ error_code() {
   fi
   echo $errcode
 }
-RPROMPT="%T"
-# Line continuation is intention, it captures the newline character
-PROMPT=$'$(error_code)'$'$(vcs_info_wrapper)'"%n@%m:%~
-$ "
+prompt_time     () { echo "%{$fg[cyan]%}[%D %T]%{$reset_color%}" }
+prompt_username () { echo "%{$fg[green]%}%n%{$reset_color%}"     }
+prompt_at       () { echo "%{$fg[yellow]%}@%{$reset_color%}"     }
+prompt_machine  () { echo "%{$fg[green]%}%M%{$reset_color%}"     }
+prompt_path     () { echo "%{$fg[white]%}%~%{$reset_color%}"     }
+prompt_pathsep  () { echo "%{$fg[yellow]%}:%{$reset_color%}"     }
+prompt_end      () { echo "\n%{$fg[yellow]%}$%{$reset_color%} "  }
+PROMPT=$'$(error_code)'$'$(prompt_time)'$'$(vcs_info_wrapper)'$'$(prompt_username)'$'$(prompt_at)'$'$(prompt_machine)'$'$(prompt_pathsep)'$'$(prompt_path)'$'$(prompt_end)'
 ## end Fancy git prompt magic
 
 autoload -U colors
 colors
+
+# For OSX:
+export CLICOLOR=1
 
 REPORTTIME=20
 
@@ -86,5 +96,6 @@ alias screen='echo "Did you mean tmux?"'
 alias ack='ack --color'
 alias less='less -R'
 alias gdb='gdb -tui --args'
+alias ls='ls -F'
 export EDITOR=vim
 export WORKSPACE=$HOME/workspace
