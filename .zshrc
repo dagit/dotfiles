@@ -67,20 +67,20 @@ error_code() {
   if [ "$ret" -gt 0 ]
   then
     #errcode="${RED}[${ret}]${DEFAULT}"
-    errcode="%{$fg[red]%}[${ret}]%{$reset_color%}"
+    errcode="%{$fg[magenta]%}[%{$fg[red]%}${ret}%{$fg[magenta]%}]%{$reset_color%}"
   else
     #errcode="${LCYAN}[☺]${DEFAULT}"
-    errcode="%{$fg[cyan]%}[☺]%{$reset_color%}"
+    errcode="%{$fg[magenta]%}[%{$fg[cyan]%}☺%{$fg[magenta]%}]%{$reset_color%}"
   fi
   echo $errcode
 }
-prompt_time     () { echo "%{$fg[cyan]%}[%D %T]%{$reset_color%}" }
+prompt_time     () { echo "%{$fg[magenta]%}[%{$fg[cyan]%}%D %T%{$fg[magenta]%}]%{$reset_color%}" }
 prompt_username () { echo "%{$fg[green]%}%n%{$reset_color%}"     }
-prompt_at       () { echo "%{$fg[magenta]%}@%{$reset_color%}"     }
+prompt_at       () { echo "%{$fg[magenta]%}@%{$reset_color%}"    }
 prompt_machine  () { echo "%{$fg[green]%}%M%{$reset_color%}"     }
 prompt_path     () { echo "%{$fg[white]%}%~%{$reset_color%}"     }
-prompt_pathsep  () { echo "%{$fg[magenta]%}:%{$reset_color%}"     }
-prompt_end      () { echo "\n%{$fg[magenta]%}$%{$reset_color%} "  }
+prompt_pathsep  () { echo "%{$fg[magenta]%}:%{$reset_color%}"    }
+prompt_end      () { echo "\n%{$fg[magenta]%}$%{$reset_color%} " }
 PROMPT=$'$(error_code)'$'$(prompt_time)'$'$(vcs_info_wrapper)'$'$(prompt_username)'$'$(prompt_at)'$'$(prompt_machine)'$'$(prompt_pathsep)'$'$(prompt_path)'$'$(prompt_end)'
 ## end Fancy git prompt magic
 
