@@ -76,11 +76,11 @@ error_code() {
 }
 prompt_time     () { echo "%{$fg[cyan]%}[%D %T]%{$reset_color%}" }
 prompt_username () { echo "%{$fg[green]%}%n%{$reset_color%}"     }
-prompt_at       () { echo "%{$fg[yellow]%}@%{$reset_color%}"     }
+prompt_at       () { echo "%{$fg[magenta]%}@%{$reset_color%}"     }
 prompt_machine  () { echo "%{$fg[green]%}%M%{$reset_color%}"     }
 prompt_path     () { echo "%{$fg[white]%}%~%{$reset_color%}"     }
-prompt_pathsep  () { echo "%{$fg[yellow]%}:%{$reset_color%}"     }
-prompt_end      () { echo "\n%{$fg[yellow]%}$%{$reset_color%} "  }
+prompt_pathsep  () { echo "%{$fg[magenta]%}:%{$reset_color%}"     }
+prompt_end      () { echo "\n%{$fg[magenta]%}$%{$reset_color%} "  }
 PROMPT=$'$(error_code)'$'$(prompt_time)'$'$(vcs_info_wrapper)'$'$(prompt_username)'$'$(prompt_at)'$'$(prompt_machine)'$'$(prompt_pathsep)'$'$(prompt_path)'$'$(prompt_end)'
 ## end Fancy git prompt magic
 
