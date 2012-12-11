@@ -74,7 +74,7 @@ error_code() {
   fi
   echo $errcode
 }
-prompt_time     () { echo "%{$fg[magenta]%}[%{$fg[cyan]%}%D %T%{$fg[magenta]%}]%{$reset_color%}" }
+prompt_time     () { echo "%{$fg[magenta]%}[%{$fg[cyan]%}%D{%Y-%b-%e %a %T}%{$fg[magenta]%}]%{$reset_color%}" }
 prompt_username () { echo "%{$fg[green]%}%n%{$reset_color%}"     }
 prompt_at       () { echo "%{$fg[magenta]%}@%{$reset_color%}"    }
 prompt_machine  () { echo "%{$fg[green]%}%M%{$reset_color%}"     }
