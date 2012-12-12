@@ -17,6 +17,8 @@ Bundle 'vim-scripts/DoxyGen-Syntax'
 Bundle 'vim-scripts/stlrefvim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'vim-scripts/The-NERD-tree'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 :let g:haddock_browser="open"
 
