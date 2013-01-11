@@ -19,12 +19,14 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
+Bundle 'frerich/unicode-haskell'
 
-:let g:haddock_browser="open"
+":let g:haddock_browser="open"
 
 set t_Co=256
 syntax enable
 set nocompatible
+set backspace=indent,eol,start
 set tabstop=2
 set expandtab
 set shiftwidth=2
@@ -34,14 +36,20 @@ set ignorecase
 set smartcase
 "highlight Comment cterm=italic
 set ls=2
+set encoding=utf-8
 set showcmd
 set ruler
 set number
 set title
 set ttyfast
 set sm
+if has("gui_running")
+  colorscheme slate
+endif
+set background=dark
+set guifont=DejaVu\ Sans\ Mono:h09
 set cul                                           " highlight current line
-"hi CursorLine term=none cterm=none ctermbg=235      " adjust color
+hi CursorLine term=underline guibg=NONE gui=underline
 set autoread
 filetype on                   " Enable filetype detection
 filetype indent on            " Enable filetype-specific indenting
@@ -55,3 +63,4 @@ endif
 " specifying a filename pattern
 set wildmode=full
 set wildmenu
+
