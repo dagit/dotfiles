@@ -47,7 +47,7 @@ if has("gui_running")
   colorscheme slate
 endif
 set background=dark
-set guifont=DejaVu\ Sans\ Mono:h09
+set guifont=DejaVu\ Sans\ Mono:h12
 set cul                                           " highlight current line
 hi CursorLine term=underline guibg=NONE gui=underline
 set autoread
