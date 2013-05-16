@@ -19,7 +19,7 @@ Bundle 'Lokaltog/powerline'
 Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-Bundle 'frerich/unicode-haskell'
+Bundle 'xolox/vim-notes'
 
 ":let g:haddock_browser="open"
 

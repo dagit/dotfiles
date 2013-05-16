@@ -29,6 +29,8 @@ HISTSIZE=2000
 HISTFILE=~/.zsh_history
 SAVEHIST=200
 
+setopt hist_ignore_all_dups
+
 ## never ever beep ever
 #setopt NO_BEEP
 
@@ -86,6 +88,9 @@ PROMPT=$'$(error_code)'$'$(prompt_time)'$'$(vcs_info_wrapper)'$'$(prompt_usernam
 
 autoload -U colors
 colors
+
+# zmv is nice for renaming batches of files according to some pattern
+autoload -U zmv
 
 # For OSX:
 export CLICOLOR=1
