@@ -27,7 +27,7 @@ setopt INC_APPEND_HISTORY
 # setopt SHARE_HISTORY
 HISTSIZE=2000
 HISTFILE=~/.zsh_history
-SAVEHIST=200
+SAVEHIST=400
 
 setopt hist_ignore_all_dups
 
@@ -91,6 +91,14 @@ colors
 
 # zmv is nice for renaming batches of files according to some pattern
 autoload -U zmv
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^o' edit-command-line
+export KEYTIMEOUT=1
+
+autoload -U select-word-style
+select-word-style bash
 
 # For OSX:
 export CLICOLOR=1
