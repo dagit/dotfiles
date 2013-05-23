@@ -20,8 +20,9 @@ Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'xolox/vim-notes'
+Bundle 'altercation/vim-colors-solarized'
 
-":let g:haddock_browser="open"
+:let g:haddock_browser=""
 
 set t_Co=256
 syntax enable
@@ -43,10 +44,14 @@ set number
 set title
 set ttyfast
 set sm
-if has("gui_running")
-  colorscheme slate
-endif
+
+""""""" Begin Solarazied Config """""""
+" Enable this on computers without solarized pallete
+"let g:solarized_termcolors=256
+colorscheme solarized
 set background=dark
+""""""" End Solarazied Config """""""
+
 set guifont=DejaVu\ Sans\ Mono:h12
 set cul                                           " highlight current line
 hi CursorLine term=underline guibg=NONE gui=underline
