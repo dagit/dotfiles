@@ -19,8 +19,8 @@ Bundle 'Lokaltog/powerline'
 Bundle 'vim-scripts/The-NERD-tree'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-Bundle 'xolox/vim-notes'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'airblade/vim-gitgutter'
 
 :let g:haddock_browser=""
 
@@ -62,7 +62,7 @@ filetype plugin on            " Enable filetype-specific plugins
 " spelling
 if v:version >= 700
   " Enable spell check for text files
-  autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
+  " autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
 endif
 " get a list of the files that matched what you are tab completing when 
 " specifying a filename pattern

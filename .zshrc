@@ -9,6 +9,10 @@ fi
 
 bindkey -e # emacs style keybindings
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^f' edit-command-line
+
 autoload -U compinit
 compinit
 
@@ -109,6 +113,9 @@ alias screen='echo "Did you mean tmux?"'
 alias ack='ack --color'
 alias less='less -R'
 alias gdb='gdb -tui --args'
-alias ls='ls -F'
+alias ls='ls -F --color=auto'
 export EDITOR=vim
 export WORKSPACE=$HOME/workspace
+
+source ~/.rose-vars
+export PATH=$HOME/.cabal/bin:$PATH
