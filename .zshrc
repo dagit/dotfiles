@@ -116,6 +116,4 @@ alias gdb='gdb -tui --args'
 alias ls='ls -F --color=auto'
 export EDITOR=vim
 export WORKSPACE=$HOME/workspace
-
-source ~/.rose-vars
 export PATH=$HOME/.cabal/bin:$PATH
