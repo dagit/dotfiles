@@ -3,7 +3,7 @@
 !-------------------------------------------------------------------------------
  
 Xft.dpi:                    132
-Xft.antialias:              false
+Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintsfull
@@ -24,7 +24,7 @@ URxvt.visualBell:           true
 URxvt.loginShell:           true
 URxvt.saveLines:            50000
 URxvt.internalBorder:       3
-URxvt.lineSpace:            0
+URxvt.lineSpace:            1
  
 ! Fonts
 !URxvt.allow_bold:           false
@@ -44,7 +44,7 @@ URxvt.scrollBar:            false
 ! Perl extensions
 URxvt.perl-ext-common:      default,matcher
 URxvt.matcher.button:       1
-URxvt.urlLauncher:          firefox
+URxvt.urlLauncher:          google-chrome
  
 ! Cursor
 URxvt.cursorBlink:          false

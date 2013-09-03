@@ -116,4 +116,4 @@ alias gdb='gdb -tui --args'
 alias ls='ls -F --color=auto'
 export EDITOR=vim
 export WORKSPACE=$HOME/workspace
-export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$HOME/local-install/bin:$HOME/.cabal/bin:$PATH
