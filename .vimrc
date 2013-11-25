@@ -22,8 +22,26 @@ Bundle 'mattn/gist-vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'airblade/vim-gitgutter'
 
-:let g:haddock_browser=""
+" lightline.vim config
+Bundle 'itchyny/lightline.vim'
+set laststatus=2
+let g:lightline = {
+      \ 'component': {
+      \   'readonly': '%{&readonly?"⭤":""}'
+      \ } }
+if $OS != 'windows'
+    let g:lightline['separator']    =  { 'left': '⮀', 'right': '⮂' }
+    let g:lightline['subseparator'] =  { 'left': '⮁', 'right': '⮃' }
+endif
 
+:let g:haddock_browser="open"
+
+"vim-notes config:
+:let g:notes_directories = ['~/AeroFS/Notes']
+:let g:notes_suffix = '.md'
+:let g:notes_title_sync = 'rename_file'
+:let g:notes_shadowdir = '~/AeroFS/Notes'
+:let g:notes_indexfile = '.vim-notes.idx'
 set t_Co=256
 syntax enable
 set nocompatible

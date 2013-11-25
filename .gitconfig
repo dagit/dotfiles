@@ -7,3 +7,5 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
 [github]
 	user = dagit
+[push]
+	default = simple
