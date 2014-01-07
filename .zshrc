@@ -114,6 +114,7 @@ alias ack='ack --color'
 alias less='less -R'
 alias gdb='gdb -tui --args'
 alias ls='ls -F --color=auto'
+alias vim='vim -p'
 export EDITOR=vim
 export WORKSPACE=$HOME/workspace
 export PATH=$HOME/local-install/bin:$WORKSPACE/bin:$HOME/.cabal/bin:$PATH
