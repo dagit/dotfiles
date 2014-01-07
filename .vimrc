@@ -63,6 +63,10 @@ set title
 set ttyfast
 set sm
 
+" Set the colors for the space highlights
+autocmd ColorScheme * highlight TrailingSpace ctermbg=red  guibg=red
+autocmd ColorScheme * highlight Tabs          ctermbg=darkblue guibg=darkblue
+
 """"""" Begin Solarazied Config """""""
 " Enable this on computers without solarized pallete
 "let g:solarized_termcolors=256
@@ -87,3 +91,13 @@ endif
 set wildmode=full
 set wildmenu
 
+" Do some fancy stuff with highlighting trailing whitespace
+autocmd BufWinEnter * let w:m1=matchadd('TrailingSpace','\s\+$',-1)
+autocmd BufWinEnter * let w:m2=matchadd('Tabs', '\t', -1)
+" On insert enter we delete the previous pattern and replace it by one that
+" doesn't show the highlight for the stuff we're editing.
+autocmd InsertEnter * call matchdelete(w:m1)
+autocmd InsertEnter * let w:m1=matchadd('TrailingSpace', '\s\+\%#\@<!$',-1)
+" On insert leave we put back the original pattern
+autocmd InsertLeave * let w:m1=matchadd('TrailingSpace', '\s\+$',-1)
+autocmd BufWinLeave * call clearmatches()
