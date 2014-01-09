@@ -99,5 +99,6 @@ autocmd BufWinEnter * let w:m2=matchadd('Tabs', '\t', -1)
 autocmd InsertEnter * call matchdelete(w:m1)
 autocmd InsertEnter * let w:m1=matchadd('TrailingSpace', '\s\+\%#\@<!$',-1)
 " On insert leave we put back the original pattern
+autocmd InsertLeave * call matchdelete(w:m1)
 autocmd InsertLeave * let w:m1=matchadd('TrailingSpace', '\s\+$',-1)
 autocmd BufWinLeave * call clearmatches()
