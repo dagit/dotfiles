@@ -92,13 +92,13 @@ set wildmode=full
 set wildmenu
 
 " Do some fancy stuff with highlighting trailing whitespace
-autocmd VimEnter * let w:m1=matchadd('TrailingSpace','\s\+$',-1)
-autocmd VimEnter * let w:m2=matchadd('Tabs', '\t', -1)
+autocmd BufEnter * let b:m1=matchadd('TrailingSpace','\s\+$',-1)
+autocmd BufEnter * let b:m2=matchadd('Tabs', '\t', -1)
 " On insert enter we delete the previous pattern and replace it by one that
 " doesn't show the highlight for the stuff we're editing.
-autocmd InsertEnter * call matchdelete(w:m1)
-autocmd InsertEnter * let w:m3=matchadd('TrailingSpace', '\s\+\%#\@<!$',-1)
+autocmd InsertEnter * call matchdelete(b:m1)
+autocmd InsertEnter * let b:m3=matchadd('TrailingSpace', '\s\+\%#\@<!$',-1)
 " On insert leave we put back the original pattern
-autocmd InsertLeave * call matchdelete(w:m3)
-autocmd InsertLeave * let w:m1=matchadd('TrailingSpace', '\s\+$',-1)
-autocmd VimLeave * call clearmatches()
+autocmd InsertLeave * call matchdelete(b:m3)
+autocmd InsertLeave * let b:m1=matchadd('TrailingSpace', '\s\+$',-1)
+autocmd BufLeave    * call clearmatches()
