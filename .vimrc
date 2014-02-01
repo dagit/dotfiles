@@ -88,8 +88,8 @@ if v:version >= 700
 endif
 " get a list of the files that matched what you are tab completing when 
 " specifying a filename pattern
-set wildmode=full
 set wildmenu
+set wildmode=list:longest,full
 
 " Do some fancy stuff with highlighting trailing whitespace
 autocmd BufEnter * let b:m1=matchadd('TrailingSpace','\s\+$',-1)
