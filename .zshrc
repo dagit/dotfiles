@@ -65,6 +65,8 @@ vcs_info_wrapper() {
 # git specific completions are too slooooow
 compdef -d git
 
+zmodload zsh/parameter
+
 error_code() {
   # make sure to get the err code first before any commands we execute here write over it
   local ret=$?
@@ -87,7 +89,7 @@ prompt_machine  () { echo "%{$fg[green]%}%M%{$reset_color%}"     }
 prompt_path     () { echo "%{$fg[white]%}%~%{$reset_color%}"     }
 prompt_pathsep  () { echo "%{$fg[magenta]%}:%{$reset_color%}"    }
 prompt_end      () { echo "\n%{$fg[magenta]%}$%{$reset_color%} " }
-PROMPT=$'$(error_code)'$'$(prompt_time)'$'$(vcs_info_wrapper)'$'$(prompt_username)'$'$(prompt_at)'$'$(prompt_machine)'$'$(prompt_pathsep)'$'$(prompt_path)'$'$(prompt_end)'
+PROMPT=$'$(error_code)'%{$fg[magenta]%}[%{$fg[cyan]%}$'${(Mw)#jobstates#suspended:}'%{$fg[magenta]%}]%{$reset_color%}$'$(prompt_time)'$'$(vcs_info_wrapper)'$'$(prompt_username)'$'$(prompt_at)'$'$(prompt_machine)'$'$(prompt_pathsep)'$'$(prompt_path)'$'$(prompt_end)'
 ## end Fancy git prompt magic
 
 autoload -U colors
