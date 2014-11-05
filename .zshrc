@@ -65,6 +65,9 @@ vcs_info_wrapper() {
 # git specific completions are too slooooow
 compdef -d git
 
+autoload -U colors
+colors
+
 zmodload zsh/parameter
 
 error_code() {
@@ -91,9 +94,6 @@ prompt_pathsep  () { echo "%{$fg[magenta]%}:%{$reset_color%}"    }
 prompt_end      () { echo "\n%{$fg[magenta]%}$%{$reset_color%} " }
 PROMPT=$'$(error_code)'%{$fg[magenta]%}[%{$fg[cyan]%}$'${(Mw)#jobstates#suspended:}'%{$fg[magenta]%}]%{$reset_color%}$'$(prompt_time)'$'$(vcs_info_wrapper)'$'$(prompt_username)'$'$(prompt_at)'$'$(prompt_machine)'$'$(prompt_pathsep)'$'$(prompt_path)'$'$(prompt_end)'
 ## end Fancy git prompt magic
-
-autoload -U colors
-colors
 
 # zmv is nice for renaming batches of files according to some pattern
 autoload -U zmv
