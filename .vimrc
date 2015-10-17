@@ -1,3 +1,5 @@
+set nocompatible
+filetype off
 " http://phuzz.org/vimrc.html
 
 set rtp+=~/.vim/bundle/vundle/
@@ -21,18 +23,19 @@ Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'airblade/vim-gitgutter'
+Plugin 'rust-lang/rust.vim'
 
 " lightline.vim config
 Bundle 'itchyny/lightline.vim'
-set laststatus=2
-let g:lightline = {
-      \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}'
-      \ } }
-if $OS != 'windows'
-    let g:lightline['separator']    =  { 'left': '⮀', 'right': '⮂' }
-    let g:lightline['subseparator'] =  { 'left': '⮁', 'right': '⮃' }
-endif
+"set laststatus=2
+"let g:lightline = {
+"      \ 'component': {
+"      \   'readonly': '%{&readonly?"⭤":""}'
+"      \ } }
+"if $OS != 'windows'
+"    let g:lightline['separator']    =  { 'left': '⮀', 'right': '⮂' }
+"    let g:lightline['subseparator'] =  { 'left': '⮁', 'right': '⮃' }
+"endif
 
 :let g:haddock_browser="open"
 
