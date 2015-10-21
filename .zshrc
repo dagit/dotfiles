@@ -115,7 +115,7 @@ alias screen='echo "Did you mean tmux?"'
 alias ack='ack --color'
 alias less='less -R'
 alias gdb='gdb -tui --args'
-alias ls='ls -F --color=auto'
+#alias ls='ls -F --color=auto'
 alias vim='vim -p'
 export EDITOR=vim
 export WORKSPACE=$HOME/workspace
