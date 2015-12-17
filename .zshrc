@@ -35,6 +35,9 @@ SAVEHIST=400
 
 setopt hist_ignore_all_dups
 
+# Automatically rehash
+zstyle ':completion:*' rehash true
+
 ## never ever beep ever
 #setopt NO_BEEP
 
@@ -113,8 +116,19 @@ alias screen='echo "Did you mean tmux?"'
 alias ack='ack --color'
 alias less='less -R'
 alias gdb='gdb -tui --args'
-alias ls='ls -F --color=auto'
 alias vim='vim -p'
+alias ls='ls -F'
+alias emacs='Emacs -nw'
+alias grep=ggrep
 export EDITOR=vim
 export WORKSPACE=$HOME/workspace
-export PATH=$HOME/local-install/bin:$WORKSPACE/bin:$HOME/.cabal/bin:$PATH
+export PATH=/Applications/Isabelle2013-2.app/Isabelle/bin:/Applications/CoqIdE_8.4pl4.app/Contents/Resources/bin:/Applications/Emacs.app/Contents/MacOS:$HOME/local-install/bin:/usr/local/bin:$WORKSPACE/bin:$HOME/.cabal/bin:/opt/local/bin:$PATH
+
+# For sailfan:
+export MONO_PATH=/Library/Frameworks/Mono.framework/Libraries/mono/4.5
+
+# Rust
+export RUST_BACKTRACE=1
+export LIBRARY_PATH=/usr/local/lib
+export HOMEBREW_GITHUB_API_TOKEN=9cd4a6c9c674801ac07c0dd303e66fd0b7b1b94f
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"

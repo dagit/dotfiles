@@ -34,8 +34,8 @@ do
 done
 
 # Also install Vundle if it's not already present:
-VUNDLE_DIR=~/.vim/bundle/vundle
-VUNDLE_REPO=https://github.com/gmarik/vundle.git
+VUNDLE_DIR=~/.vim/bundle/Vundle.vim
+VUNDLE_REPO=https://github.com/VundleVim/Vundle.vim
 if [[ ! -e "$VUNDLE_DIR" ]]
 then
   git clone "$VUNDLE_REPO" "$VUNDLE_DIR"
