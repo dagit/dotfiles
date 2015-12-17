@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 IGNORED=(. .. .git .gitignore .ssh)
 DOTFILES=(.* .ssh/rc)

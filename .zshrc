@@ -68,6 +68,11 @@ vcs_info_wrapper() {
 # git specific completions are too slooooow
 compdef -d git
 
+autoload -U colors
+colors
+
+zmodload zsh/parameter
+
 error_code() {
   # make sure to get the err code first before any commands we execute here write over it
   local ret=$?
@@ -90,11 +95,8 @@ prompt_machine  () { echo "%{$fg[green]%}%M%{$reset_color%}"     }
 prompt_path     () { echo "%{$fg[white]%}%~%{$reset_color%}"     }
 prompt_pathsep  () { echo "%{$fg[magenta]%}:%{$reset_color%}"    }
 prompt_end      () { echo "\n%{$fg[magenta]%}$%{$reset_color%} " }
-PROMPT=$'$(error_code)'$'$(prompt_time)'$'$(vcs_info_wrapper)'$'$(prompt_username)'$'$(prompt_at)'$'$(prompt_machine)'$'$(prompt_pathsep)'$'$(prompt_path)'$'$(prompt_end)'
+PROMPT=$'$(error_code)'%{$fg[magenta]%}[%{$fg[cyan]%}$'${(Mw)#jobstates#suspended:}'%{$fg[magenta]%}]%{$reset_color%}$'$(prompt_time)'$'$(vcs_info_wrapper)'$'$(prompt_username)'$'$(prompt_at)'$'$(prompt_machine)'$'$(prompt_pathsep)'$'$(prompt_path)'$'$(prompt_end)'
 ## end Fancy git prompt magic
-
-autoload -U colors
-colors
 
 # zmv is nice for renaming batches of files according to some pattern
 autoload -U zmv
@@ -116,19 +118,13 @@ alias screen='echo "Did you mean tmux?"'
 alias ack='ack --color'
 alias less='less -R'
 alias gdb='gdb -tui --args'
+alias ls='ls -F --color=auto'
 alias vim='vim -p'
-alias ls='ls -F'
-alias emacs='Emacs -nw'
 alias grep=ggrep
 export EDITOR=vim
 export WORKSPACE=$HOME/workspace
-export PATH=/Applications/Isabelle2013-2.app/Isabelle/bin:/Applications/CoqIdE_8.4pl4.app/Contents/Resources/bin:/Applications/Emacs.app/Contents/MacOS:$HOME/local-install/bin:/usr/local/bin:$WORKSPACE/bin:$HOME/.cabal/bin:/opt/local/bin:$PATH
-
-# For sailfan:
-export MONO_PATH=/Library/Frameworks/Mono.framework/Libraries/mono/4.5
+export PATH=$HOME/local-install/bin:/usr/local/bin:$WORKSPACE/bin:$HOME/.cabal/bin:/opt/local/bin:$PATH
 
 # Rust
 export RUST_BACKTRACE=1
 export LIBRARY_PATH=/usr/local/lib
-export HOMEBREW_GITHUB_API_TOKEN=9cd4a6c9c674801ac07c0dd303e66fd0b7b1b94f
-PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
