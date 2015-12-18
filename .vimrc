@@ -15,7 +15,7 @@ Plugin 'gregsexton/gitv'
 Plugin 'Twinside/vim-syntax-haskell-cabal'
 Plugin 'lukerandall/haskellmode-vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'hallison/vim-markdown'
+Plugin 'tpope/vim-markdown'
 Plugin 'vim-scripts/DoxyGen-Syntax'
 Plugin 'vim-scripts/stlrefvim'
 Plugin 'Lokaltog/powerline'
@@ -27,9 +27,35 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'kongo2002/fsharp-vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'mhinz/vim-sayonara'
+Plugin 'teoljungberg/vim-grep'
+" CtrlP
+Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_map = '<Space>'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("t")': [ '<c-g>' ]
+    \ }
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_extensions = [ 'mixed', 'quickfix', 'undo' ]
+let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_match_window = 'max:20,results:20'
+let g:ctrlp_mruf_relative = 1
+nnoremap <C-@> :CtrlPBuffer<CR>
+" Silver searcher integration
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s --nocolor -g ""'
+endif
+
+" Haskell mode
+Plugin 'elliottt/vim-haskell'
 
 " lightline.vim config
 Plugin 'itchyny/lightline.vim'
+
+" Tmux integration
+Plugin 'benmills/vimux'
+
+Plugin 'tpope/vim-dispatch'
 
 call vundle#end()
 filetype plugin indent on
@@ -89,17 +115,11 @@ set guifont=DejaVu\ Sans\ Mono:h12
 set cul                                           " highlight current line
 hi CursorLine term=underline guibg=NONE gui=underline
 set autoread
-" spelling
-if v:version >= 700
-  " Enable spell check for text files
-  autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
-  autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en
-  autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en
-endif
 " get a list of the files that matched what you are tab completing when 
 " specifying a filename pattern
 set wildmenu
 set wildmode=list:longest,full
+set wildignore=*.o,*.hi,*.swp,*.bc,dist/*
 
 "" Do some fancy stuff with highlighting trailing whitespace
 "autocmd BufEnter * let b:m1=matchadd('TrailingSpace','\s\+$',-1)
@@ -146,3 +166,28 @@ au BufEnter /* call LoadCscope()
 set incsearch
 nnoremap <silent> <C-d> :Sayonara<Cr>
 
+" Fold by manually defined folds
+set foldenable
+set foldmethod=marker
+
+" Spell checking
+if has("spell")
+  setlocal spell spelllang=en_us
+  set nospell
+  autocmd BufNewFile,BufRead *.txt setlocal spell spelllang=en
+  autocmd BufRead,BufNewFile *.md setlocal spell spelllang=en
+  autocmd BufRead,BufNewFile *.tex setlocal spell spelllang=en
+endif
+" Wrap the line at 80 characters
+set textwidth=80
+
+" Enable hidden buffers (so that switching between dirty buffers doesn't throw
+" an error)
+set hidden
+
+let g:grepprg="ag --nogroup --column"
+function FindPat(pat)
+    execute "Grep '" . a:pat . "' **/*"
+endfunction
+
+command -nargs=0 Todo call FindPat('(TODO|XXX)')
