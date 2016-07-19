@@ -18,7 +18,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-markdown'
 Plugin 'vim-scripts/DoxyGen-Syntax'
 Plugin 'vim-scripts/stlrefvim'
-Plugin 'Lokaltog/powerline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'mattn/webapi-vim'
 Plugin 'mattn/gist-vim'
@@ -60,15 +61,48 @@ Plugin 'tpope/vim-dispatch'
 call vundle#end()
 filetype plugin indent on
 
-set laststatus=2
-let g:lightline = {
-      \ 'component': {
-      \   'readonly': '%{&readonly?"⭤":""}'
-      \ } }
-if $OS != 'windows'
-    let g:lightline['separator']    =  { 'left': '⮀', 'right': '⮂' }
-    let g:lightline['subseparator'] =  { 'left': '⮁', 'right': '⮃' }
+" airline config
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
 endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+" old vim-powerline symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+
+set laststatus=2
 
 :let g:haddock_browser="open"
 
