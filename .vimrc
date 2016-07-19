@@ -50,9 +50,6 @@ endif
 " Haskell mode
 Plugin 'elliottt/vim-haskell'
 
-" lightline.vim config
-Plugin 'itchyny/lightline.vim'
-
 " Tmux integration
 Plugin 'benmills/vimux'
 
@@ -66,6 +63,7 @@ let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+let g:airline#extensions#tabline#enabled = 1
 
 
 set laststatus=2
