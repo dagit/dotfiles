@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 IGNORED=(. .. .git .gitignore .ssh)
-DOTFILES=(.* .ssh/rc)
+DOTFILES=(.* .ssh/rc .emacs.d/init.el)
 
 function containsElement () {
 
