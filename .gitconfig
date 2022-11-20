@@ -1,6 +1,6 @@
 [user]
 	name = Jason Dagit
-	email = dagit@galois.com
+	email = dagitj@gmail.com
 [color]
 	ui = true
 [alias]
@@ -8,4 +8,5 @@
 [github]
 	user = dagit
 [push]
-	default = simple
+  default = simple
+  autoSetupRemote = true
